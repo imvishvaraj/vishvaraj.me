@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
+from jobs.views import homepage, homepage2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('home1/', homepage, name='home'),
+    path('', homepage2, name='home2'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
