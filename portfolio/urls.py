@@ -18,10 +18,12 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from jobs.views import homepage, homepage2
+from jobs.views import home3
+from blog.views import blogpage, post
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home1/', homepage, name='home'),
-    path('', homepage2, name='home2'),
+    path('', home3, name='home'),
+    path('blog/', blogpage, name='blog'),
+    path('post/', post, name='post')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
