@@ -20,10 +20,11 @@ from django.conf.urls.static import static
 
 from jobs.views import home3
 from blog.views import blogpage, post
+from launch_page.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home3, name='home'),
+    path('', home, name='home'),
     path('blog/', blogpage, name='blog'),
     path('post/', post, name='post')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
