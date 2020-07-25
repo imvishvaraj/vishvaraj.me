@@ -6,10 +6,13 @@
         <h1 class="mt-4">{{ object.title }}</h1>
 
         <!-- Author -->
-        <p class="lead">
-          By <a href="#">{{ object.author }}</a>
-            <div class="text-muted">Posted on {{ object.date }}</div>
-        </p>
+<!--        <p class="lead">-->
+        <div class="text-muted">
+          By <a href="#" class="lead">{{ object.author }}</a> posted on {{ object.date|date:"D d M, Y" }}
+<!--        </p>-->
+        </div>
+        <hr>
+
         <!-- Date/Time -->
 <!--        <p>Posted on {{ object.date }}</p>-->
 <!--        <p>Posted on January 1, 2019 at 12:00 PM</p>-->
@@ -18,9 +21,11 @@
 <!--        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">-->
 
         <!-- Post Content -->
-        <div class=" mb-4 mt-4">
-            <p >{{ object.content|linebreaks }}</p>
-        </div>
+            {% autoescape off %}
+    <!--        <div class="mb-4 mt-4">-->
+                <p >{{ object.content|linebreaks }}</p>
+    <!--        </div>-->
+            {% endautoescape %}
 <!--        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>-->
 
 <!--        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>-->
@@ -40,9 +45,6 @@
 
         <hr>
         <a href="{% host_url 'blog_home' host 'blog' %}">Back to Home</a>
-
-
-
 
 {% endblock %}
 

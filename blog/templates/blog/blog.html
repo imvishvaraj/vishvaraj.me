@@ -7,7 +7,7 @@
     <div class="card mb-4 mt-4">
       <div class="card-body">
         <h2 class="card-title">{{ entry.title }}</h2>
-        <p class="card-text">{{ entry.content|truncatechars:50 }}</p>
+        <p class="card-text">{{ entry.content|truncatechars:100 }}</p>
         <a href="{% host_url 'post_detail' entry.pk  host 'blog' %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
       </div>
       <div class="card-footer text-muted">
