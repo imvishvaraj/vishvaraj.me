@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 {% load static %}
+{% load hosts %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,7 +46,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">Vishvaraj</a>
+        <a class="navbar-brand" href="{% host_url 'home' host 'www' %}">Vishvaraj</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -58,7 +59,7 @@
             </li> -->
 
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+              <a class="nav-link" href="{% host_url 'blog_home' host 'blog' %}">Blog</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Portfolio</a>
@@ -86,14 +87,21 @@
           {% block content %}{% endblock %}
 
           <!-- Pagination -->
+        {% if is_paginated %}
           <ul class="pagination justify-content-center mb-4">
+            {% if page_obj.has_previous %}
             <li class="page-item">
-              <a class="page-link" href="#">&larr; Older</a>
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&larr; Previous Page</a>
             </li>
-            <li class="page-item disabled">
-              <a class="page-link" href="#">Newer &rarr;</a>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next Page &rarr;</a>
             </li>
+            {% endif %}
           </ul>
+        {% endif %}
 
         </div>
 
