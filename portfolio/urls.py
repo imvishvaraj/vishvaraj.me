@@ -18,7 +18,6 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from jobs.views import home3
 from launch_page.views import home
 
 urlpatterns = [

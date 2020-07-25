@@ -1,8 +1,6 @@
-# vishvaraj.me
-Portfolio Site
+# Introduction
+Hello guys, my name is Vishvaraj Dhanawade. This repository is regarding my portfolio at http://vishvaraj.me . 
 
-## How to setup Python + Flask Web site with Godaddy??
-While deploying Python + Flask web site on Godaddy got lots of troubles.
-Cause of shared space.
-Kindly refer to this link (https://towardsdatascience.com/installing-python-3-and-flask-on-godaddy-1635fe6f24bc) to do it.
-He has explained it well. 
+Also create blog to keep writing about incidents and stories, please check http://blog.vishvaraj.me :)
+
+I will be adding some online apps developed while experimenting.
