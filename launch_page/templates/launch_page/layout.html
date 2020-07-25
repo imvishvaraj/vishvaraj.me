@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 {% load static %}
+{% load hosts %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -58,7 +59,7 @@
               </a>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+              <a class="nav-link" href="{% host_url 'blog_home' host 'blog' %}">Blog</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Portfolio</a>
