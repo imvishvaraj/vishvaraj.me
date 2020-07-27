@@ -13,7 +13,12 @@
         <hr>
 
         <!-- Preview Image -->
-        {% if object.first_img %}
+        {% if object.first_img_ext_url %}
+            <figure class="figure">
+              <img src={{ object.first_img_ext_url }} class="figure-img img-fluid rounded" alt="Responsive image">
+              <figcaption class="figure-caption text-center">Fig: {{ object.first_img_caption }}</figcaption>
+            </figure>
+        {% elif object.first_img %}
             <figure class="figure">
               <img src={{ object.first_img.url }} class="figure-img img-fluid rounded" alt="Responsive image">
               <figcaption class="figure-caption text-center">Fig: {{ object.first_img_caption }}</figcaption>
