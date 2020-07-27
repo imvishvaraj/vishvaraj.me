@@ -5,7 +5,9 @@
   <!-- Blog Post -->
   {% for entry in blog_entries %}
     <div class="card mb-4 mt-4">
-      {% if entry.first_img %}
+      {% if entry.first_img_ext_url %}
+          <img class="card-img-top" src={{ entry.first_img_ext_url }} alt="Card image cap">
+      {% elif entry.first_img %}
           <img class="card-img-top" src={{ entry.first_img.url }} alt="Card image cap">
       {% endif %}
       <div class="card-body">

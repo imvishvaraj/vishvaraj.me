@@ -8,6 +8,7 @@ class Post(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    first_img_ext_url = models.URLField(max_length=255, null=True, blank=True)
     first_img = models.ImageField(upload_to='posts_imgs/%y/', max_length=255, null=True, blank=True)
     first_img_caption = models.TextField(max_length=300, null=True, blank=True)
     # previous_post = models.ForeignKey('self', related_name='previous', on_delete=models.SET_NULL, blank=True, null=True)
