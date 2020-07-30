@@ -13,7 +13,7 @@
       <div class="card-body">
         <h2 class="card-title">{{ entry.title }}</h2>
         <p class="card-text">{{ entry.content|truncatechars:100 }}</p>
-        <a href="{% host_url 'post_detail' entry.pk  host 'blog' %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
+        <a href="{% host_url 'post_detail' entry.slug  host 'blog' %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
       </div>
       <div class="card-footer text-muted">
         Posted on {{ entry.date }} by
