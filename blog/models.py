@@ -2,12 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.urls import reverse
+from tinymce.models import HTMLField
 
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
     date = models.DateTimeField(auto_now_add=True)
-    content = models.TextField()
+    content = HTMLField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     first_img_ext_url = models.URLField(max_length=255, null=True, blank=True)
     first_img = models.ImageField(upload_to='posts_imgs/%y/', max_length=255, null=True, blank=True)
