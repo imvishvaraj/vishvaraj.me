@@ -3,6 +3,7 @@
 {% block content %}
 
   <!-- Blog Post -->
+  {% autoescape off %}
   {% for entry in blog_entries %}
     <div class="card mb-4 mt-4">
       {% if entry.first_img_ext_url %}
@@ -12,7 +13,7 @@
       {% endif %}
       <div class="card-body">
         <h2 class="card-title">{{ entry.title }}</h2>
-        <p class="card-text">{{ entry.content|truncatechars:100 }}</p>
+        <p class="card-text">{{ entry.content|truncatechars:40 }}</p>
         <a href="{% host_url 'post_detail' entry.slug  host 'blog' %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
       </div>
       <div class="card-footer text-muted">
@@ -21,6 +22,7 @@
       </div>
     </div>
   {% endfor %}
+  {% endautoescape %}
 <!--  <div class="card mb-4">-->
 <!--    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">-->
 <!--    <div class="card-body">-->
