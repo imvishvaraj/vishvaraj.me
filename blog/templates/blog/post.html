@@ -3,11 +3,11 @@
 {% block content %}
 
         <!-- Title -->
-        <h1 class="mt-4">{{ object.title }}</h1>
+        <h1 class="mt-4 text-primary block-title">{{ object.title }}</h1>
 
         <!-- Author with Date/Time -->
         <div class="text-muted">
-          By <a href="#" class="lead">{{ object.author }}</a> posted on {{ object.date|date:"D d M, Y" }}
+          By {{ object.author }} posted on {{ object.date|date:"D d M, Y" }}
 <!--        </p>-->
         </div>
         <hr>
@@ -33,7 +33,30 @@
             {% endautoescape %}
 
         <hr>
-        <a href="{% host_url 'blog_home' host 'blog' %}">Back to Home</a>
+            <div class="text">
+                {% if object.previous_post %}
+<!--                    <div class="text text-left">-->
+                        <a href="{{ object.previous_post.get_absolute_url }}" class="btn btn-link float-left btn-sm" title="{{ object.previous_post.title }}">
+                            <strong class="text-primary">Previous Post </strong>
+<!--                              <h6>{{ object.previous_post.title }}</h6>-->
+                        </a>
+<!--                    </div>-->
+                {% endif %}
+
+                {% if object.next_post %}
+<!--                    <div class="text  text-right">-->
+                        <a href="{{ object.next_post.get_absolute_url }}" class="btn btn-link float-right btn-sm" title="{{ object.next_post.title }}">
+                            <strong class="text-primary">Next Post </strong>
+<!--                              <h6>{{ object.next_post.title }}</h6>-->
+                        </a>
+<!--                    </div>-->
+                {% endif %}
+            </div>
+<!--        <a href="{% host_url 'blog_home' host 'blog' %}">Back to Home</a>-->
+
+        <br>
+
+        {% include 'blog/comments.html' %}
 
 {% endblock %}
 
