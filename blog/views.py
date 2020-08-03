@@ -10,7 +10,7 @@ class HomeView(ListView):
     template_name = 'blog/blog.html'
     context_object_name = 'blog_entries'
     ordering = ['-date']
-    paginate_by = 3
+    paginate_by = 5
 
 
 class PostView(DetailView):

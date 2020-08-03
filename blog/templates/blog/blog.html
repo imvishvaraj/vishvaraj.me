@@ -3,40 +3,24 @@
 {% block content %}
 
   <!-- Blog Post -->
-
   {% for entry in blog_entries %}
-    <div class="card mb-4 mt-4">
-      {% if entry.first_img_ext_url %}
-          <img class="card-img-top" src={{ entry.first_img_ext_url }} alt="Card image cap">
-      {% elif entry.first_img %}
-          <img class="card-img-top" src={{ entry.first_img.url }} alt="Card image cap">
-      {% endif %}
-      <div class="card-body">
-        <h2 class="card-title text-primary">{{ entry.title }}</h2>
-        {% if entry.overview %}
-          <p class="card-text">{{ entry.overview }}</p>
-        {% endif %}
-        <p><a href="{% host_url 'post_detail' entry.slug  host 'blog' %}" class="btn btn-link btn-sm">Read More &rarr;</a></p>
-      </div>
-      <div class="card-footer text-muted">
-        Posted on {{ entry.date }} by
-        <span class= "text-info mr-2">{{ entry.author }}</span>
-      </div>
-    </div>
-  {% endfor %}
+    <div class="mb-4 mt-4">
+      <a href="{% host_url 'post_detail' entry.slug  host 'blog' %}">
+        <h2 class="">
+          <b>{{ entry.title }}</b>
+        </h2>
+      </a>
 
-<!--  <div class="card mb-4">-->
-<!--    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">-->
-<!--    <div class="card-body">-->
-<!--      <h2 class="card-title">Post Title</h2>-->
-<!--      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>-->
-<!--      <a href="#" class="btn btn-primary">Read More &rarr;</a>-->
-<!--    </div>-->
-<!--    <div class="card-footer text-muted">-->
-<!--      Posted on January 1, 2017 by-->
-<!--      <a href="#">Start Bootstrap</a>-->
-<!--    </div>-->
-<!--  </div>-->
+      <h5 class="font-weight-light text-sm-left">
+        {{ entry.overview }}
+      </h5>
+
+      <p class="text-muted">
+        {{ entry.date|date }}
+      </p>
+    </div>
+    <hr>
+  {% endfor %}
 
 {% endblock %}
 
